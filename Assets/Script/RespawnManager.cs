@@ -38,7 +38,7 @@ public class RespawnManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         
         while(GameManager.instance.isPlay){
-            if(!GameManager.instance.isEmptySpaceSpawn){
+            if(!GameManager.instance.isHoleSpawn){
                 MobPool[DeactiveMob()].SetActive(true);
             }
             yield return new WaitForSeconds(Random.Range(2f, 3f));

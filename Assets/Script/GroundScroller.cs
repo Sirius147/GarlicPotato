@@ -41,13 +41,14 @@ public class GroundScroller : MonoBehaviour
                     // 공백 타일은 다음 규칙을 따라 나온다
                     // plat table 3개 -> right table 1개 -> 공백 칸 1~3개 -> left table 1개 -> plat table 3개
                     if(front_plat_table_num + left_table_num + empty_space_num + right_table_num + back_plat_table_num == 0){
+                        GameManager.instance.isHoleSpawn = false;
                         int randomblock = Random.Range(0, 10)/9;
                         switch(randomblock){
                             case 0:      //0: 테이블이 이어지는 경우    0 1 2 3 4 5 6 7 8- 90%
                                 tiles[i].sprite = groundImg[0];
                                 break;
                             case 1:      //1: empty space가 나오는 경우 9 - 10%
-                                GameManager.instance.isEmptySpaceSpawn = true;
+                                GameManager.instance.isHoleSpawn = true;
                                 tiles[i].sprite = groundImg[0];         //앞쪽 plat 블럭1개 나올 차례
                                 front_plat_table_num = 2;
                                 right_table_num = 1;
@@ -78,7 +79,6 @@ public class GroundScroller : MonoBehaviour
                     else if(back_plat_table_num != 0){   //뒤쪽 plat 블럭 나올 차례
                         tiles[i].sprite = groundImg[0];
                         back_plat_table_num--;
-                        GameManager.instance.isEmptySpaceSpawn = false;
                     }
                 }
             }

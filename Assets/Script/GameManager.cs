@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public float gameSpeed = 1; //게임 전체 속도 조절
     public bool isPlay = false;
     public GameObject playBtn;
-    public bool isEmptySpaceSpawn = false;
+    public bool isHoleSpawn = false;
 
 
     public void PlayBtnClick(){
