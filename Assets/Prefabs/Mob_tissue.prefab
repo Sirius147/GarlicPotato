@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7963434282845674262}
   - component: {fileID: 8868575787217915202}
   m_Layer: 0
-  m_Name: Mob_tissue1
+  m_Name: Mob_tissue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
