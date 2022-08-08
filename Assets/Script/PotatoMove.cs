@@ -5,11 +5,8 @@ using UnityEngine;
 public class PotatoMove : MonoBehaviour
 {   
     public float jumpForce;
-    public float dJumpForce;
     public Animator anim;
-    bool isJumping=false;
-    //int countCall=0;
-    
+    int jumpStack=0;
     Rigidbody2D rb;
     
 
@@ -18,68 +15,49 @@ public class PotatoMove : MonoBehaviour
     {
         rb=GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
-                
     }
 
     // Update is called once per frame
     void Update()
     {
-      if(Input.GetMouseButtonDown(0))    //Left mouse button is clicked
-        {
-            if(isJumping==false)
-            {
+        if(Input.GetMouseButtonDown(0))   
+        {       
+            if((jumpStack<2) && (!anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide"))) 
+            {   //slide상태가 아니고 점프스택이 2회보다 작을 때
                 anim.SetTrigger("toJump");
-                isJumping=true;
                 rb.velocity = Vector2.up * jumpForce;
+                jumpStack+=1;
             }
             
             
+                
         }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(isJumping ==false)
-            {
-                anim.SetTrigger("toDjump");
-                isJumping=true;
-                rb.velocity = Vector2.up*dJumpForce;
-            }
-            
-        }
+        
         if(Input.GetMouseButtonDown(1)) //우클릭
         {
-            if(isJumping==false)
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoRun"))   //run 상태일 때 우클릭하면 슬라이드 상태 유지
             {
                 anim.SetTrigger("toSlide");  
-                anim.SetTrigger("toRun");
                            
             }
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide")) // 우클릭을 한번 더 누르면 런 상태로 변경
+            {
+                anim.SetTrigger("toRun");
+            }
+            
         }
     
     }
-    /*
-    void OnCollisionEnter2D(Collision2D col) 
-    {
-        countCall+=1;
-    if ((col.transform.name == "Map_table1") || (col.transform.name =="Map_table2") || (col.transform.name=="Map-table3")) 
-    {
-
-        isJumping = false;
-        if(countCall>1)
-        {   
-            anim.SetTrigger("toRun");
-        }
-
-    }
-    }*/
+    
     void OnCollisionEnter2D(Collision2D col)   //테이블과 충돌했을 때 실행 ( 공중에서 무한점프를 방지하고 애니메이션전환 )
     {
         
         if(col.gameObject.tag=="Ground")   //collider 이름이 Ground 인 물체와 부딪힐 때 실행
         {
             Debug.Log("OnCollision worked");
-            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoJump") || anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoDjump"))
-            { //점프 상태에서 바닥에 착지할 때 점프상태를 false로 바꾸고 애니메이션도 run으로 변경
-                isJumping=false;
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoJump"))
+            { //점프 상태에서 바닥에 착지할 때 점프스택을 0으로 바꾸고 애니메이션도 run으로 변경
+                jumpStack=0;
                 anim.SetTrigger("toRun");
             }
         }

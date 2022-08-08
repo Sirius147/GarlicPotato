@@ -835,8 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3753eaf0e697d4998bd467de0d46fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
-  dJumpForce: 20
+  jumpForce: 13
   anim: {fileID: 0}
 --- !u!95 &652833196
 Animator:
@@ -871,7 +870,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014048338, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -899,7 +898,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3.6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
