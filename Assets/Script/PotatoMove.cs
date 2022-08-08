@@ -8,7 +8,7 @@ public class PotatoMove : MonoBehaviour
     public float dJumpForce;
     public Animator anim;
     bool isJumping=false;
-    int countCall=0;
+    //int countCall=0;
     
     Rigidbody2D rb;
     
@@ -71,5 +71,21 @@ public class PotatoMove : MonoBehaviour
 
     }
     }*/
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        
+        // if(col.gameObject.tag=="Ground")   콜리젼 함수 실행시 그라운드에 의해서인지
+        // 장애물에 의해서인지 구분하기 위한 조건  --> 동작이 안되서 보류
+        
+            
+        
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoJump") || anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoDjump"))
+        {
+            isJumping=false;
+            anim.SetTrigger("toRun");
+        }
+        
+        
+    }
     
 }
