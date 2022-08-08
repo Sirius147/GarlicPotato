@@ -71,21 +71,27 @@ public class PotatoMove : MonoBehaviour
 
     }
     }*/
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)   //테이블과 충돌했을 때 실행 ( 공중에서 무한점프를 방지하고 애니메이션전환 )
     {
         
-        // if(col.gameObject.tag=="Ground")   콜리젼 함수 실행시 그라운드에 의해서인지
-        // 장애물에 의해서인지 구분하기 위한 조건  --> 동작이 안되서 보류
-        
-            
-        
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoJump") || anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoDjump"))
+        if(col.gameObject.tag=="Ground")   //collider 이름이 Ground 인 물체와 부딪힐 때 실행
         {
-            isJumping=false;
-            anim.SetTrigger("toRun");
+            Debug.Log("OnCollision worked");
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoJump") || anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoDjump"))
+            { //점프 상태에서 바닥에 착지할 때 점프상태를 false로 바꾸고 애니메이션도 run으로 변경
+                isJumping=false;
+                anim.SetTrigger("toRun");
+            }
         }
         
         
     }
+    void OnTriggerEnter2D(Collider2D col)
+	{       //collider 이름이 Mob인 물체를 통과했을 때 실행
+	    if (col.tag == "Mob")    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
+	    {
+	        Debug.Log("OnTriggerEnter2D");  
+	    }
+	}
     
 }

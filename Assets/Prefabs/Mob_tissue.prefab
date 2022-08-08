@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8868575787217915202}
   m_Layer: 0
   m_Name: Mob_tissue
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
