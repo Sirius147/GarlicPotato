@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public bool isPlay = false;
     public GameObject playBtn;
     public bool isHoleSpawn = false;
-
+    public int GameScore = 0;
 
     public void PlayBtnClick(){
         playBtn.SetActive(false);
