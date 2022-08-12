@@ -70,7 +70,7 @@ public class PotatoMove : MonoBehaviour
         
         
     }
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
 	{       //collider 이름이 Mob인 물체를 통과했을 때 실행
 	    if (col.tag == "Mob")    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
 	    {
@@ -90,6 +90,6 @@ public class PotatoMove : MonoBehaviour
             }
             gameObject.SetActive(false);
 	    }
-	}
+	}*/
     
 }

@@ -838,7 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 13
   anim: {fileID: 0}
-  life: 3
+  life: 0
   score: 0
 --- !u!95 &652833196
 Animator:
@@ -1957,7 +1957,7 @@ GameObject:
   - component: {fileID: 1607587010}
   - component: {fileID: 1607587012}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00:00
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbfef26b1ce6c1342b58903a46d6aaae, type: 2}
   m_sharedMaterial: {fileID: 3400182705360446520, guid: dbfef26b1ce6c1342b58903a46d6aaae, type: 2}
@@ -2092,6 +2092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de651c9a6e13d624f80d71238d0a7b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1607587010}
 --- !u!1 &1690470683
 GameObject:
   m_ObjectHideFlags: 0
