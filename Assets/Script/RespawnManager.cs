@@ -10,7 +10,7 @@ public class RespawnManager : MonoBehaviour
     public List<GameObject> ItemPool = new List<GameObject>();  //게임에서 미리 생성될(활성화/비활성화 될) Item들의 리스트
     public GameObject[] Items;   //Item의 prefabs들을 넣는 배열
 
-    public int mob_objCnt = 5;
+    public int mob_objCnt = 3;
     public int item_objCnt = 1;
 
     void Awake() {
@@ -54,8 +54,14 @@ public class RespawnManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         
         while(GameManager.instance.isPlay){
+            int temp = Random.Range(1, 3);      //개발 편의성을 위해 아이템 많이 생성되게
+            //int temp = Random.Range(1, 11);
+
             if(!GameManager.instance.isHoleSpawn){
-                MobPool[DeactiveMob()].SetActive(true);
+                if(temp != 1)
+                    MobPool[DeactiveMob()].SetActive(true);
+                else
+                    ItemPool[DeactiveItem()].SetActive(true);
             }
             yield return new WaitForSeconds(Random.Range(2f, 3f));
         }   
@@ -65,6 +71,18 @@ public class RespawnManager : MonoBehaviour
         List<int> num = new List<int>();
         for(int i=0; i<MobPool.Count; i++){
             if(!MobPool[i].activeSelf)
+                num.Add(i);
+        }
+        int x=0;
+        if(num.Count > 0)
+            x = num[Random.Range(0, num.Count)];
+        return x;
+    }
+
+    int DeactiveItem(){      //지금 활성화되어 있지 않은 Item을 찾는 함수
+        List<int> num = new List<int>();
+        for(int i=0; i<ItemPool.Count; i++){
+            if(!ItemPool[i].activeSelf)
                 num.Add(i);
         }
         int x=0;

@@ -2282,6 +2282,7 @@ MonoBehaviour:
   ItemPool: []
   Items:
   - {fileID: 4483139238270652899, guid: ca5759f232e5a7d42bef3fc4dec5b37c, type: 3}
+  - {fileID: 3018003296406276805, guid: f68e99927c7ed3b4285a8148e468fc2f, type: 3}
   mob_objCnt: 5
   item_objCnt: 1
 --- !u!1001 &1766363633
