@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PotatoMove : MonoBehaviour
 {   
@@ -8,7 +9,12 @@ public class PotatoMove : MonoBehaviour
     public Animator anim;
     int jumpStack=0;
     Rigidbody2D rb;
+
+    //김지은 
+    public int life;
+    public int score;
     
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +74,21 @@ public class PotatoMove : MonoBehaviour
 	{       //collider 이름이 Mob인 물체를 통과했을 때 실행
 	    if (col.tag == "Mob")    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
 	    {
-	        Debug.Log("OnTriggerEnter2D");  
+            //김지은
+            life--;
+            GameManager.UpdateLifeImage(life);
+
+	        Debug.Log("OnTriggerEnter2D");
+
+            if (life == 0)
+            {
+                GameManager.GameOver();
+            }
+            else
+            {
+                GameManager.RespawnPlayer(); //이 부분 모르겠음
+            }
+            gameObject.SetActive(false);
 	    }
 	}
     
