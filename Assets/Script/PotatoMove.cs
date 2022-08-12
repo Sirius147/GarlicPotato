@@ -52,6 +52,12 @@ public class PotatoMove : MonoBehaviour
             }
             
         }
+        if(transform.position.y<-3.3)
+        {
+            Debug.Log("game over");
+
+            //game over 씬으로 전환
+        }
     
     }
     
