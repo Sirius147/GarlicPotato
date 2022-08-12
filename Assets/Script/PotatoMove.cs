@@ -55,8 +55,8 @@ public class PotatoMove : MonoBehaviour
         if(transform.position.y<-3.3)
         {
             Debug.Log("game over");
-
-            //game over 씬으로 전환
+            GameManager.instance.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
+            
         }
     
     }

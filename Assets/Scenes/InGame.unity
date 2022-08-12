@@ -2279,7 +2279,11 @@ MonoBehaviour:
   - {fileID: 4237508193781629468, guid: b29b1747c20cc1c45909d9fa0cf828c6, type: 3}
   - {fileID: 4910524847488230254, guid: 70c13968c7178d142be94a0535c306cd, type: 3}
   - {fileID: 6716781956717924292, guid: 3e817f6c5c6e1084b8fb29e77701700e, type: 3}
-  objCnt: 2
+  ItemPool: []
+  Items:
+  - {fileID: 4483139238270652899, guid: ca5759f232e5a7d42bef3fc4dec5b37c, type: 3}
+  mob_objCnt: 5
+  item_objCnt: 1
 --- !u!1001 &1766363633
 PrefabInstance:
   m_ObjectHideFlags: 0

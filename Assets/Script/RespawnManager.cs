@@ -6,11 +6,22 @@ public class RespawnManager : MonoBehaviour
 {
     public List<GameObject> MobPool = new List<GameObject>();   //게임에서 미리 생성될(활성화/비활성화 될) Mob들의 리스트
     public GameObject[] Mobs;   //Mob의 prefabs들을 넣는 배열
-    public int objCnt = 1;
-    void Awake() {          //MobPool 리스트에 생성할 Mob들을 objCnt개 만큼 추가함
-        for(int i=0; i<Mobs.Length; i++){
-            for(int q=0; q<objCnt; q++){
+
+    public List<GameObject> ItemPool = new List<GameObject>();  //게임에서 미리 생성될(활성화/비활성화 될) Item들의 리스트
+    public GameObject[] Items;   //Item의 prefabs들을 넣는 배열
+
+    public int mob_objCnt = 5;
+    public int item_objCnt = 1;
+
+    void Awake() {
+        for(int i=0; i<Mobs.Length; i++){          //MobPool 리스트에 생성할 Mob들을 mob_objCnt개 만큼 추가함
+            for(int q=0; q<mob_objCnt; q++){
                 MobPool.Add(CreateObj(Mobs[i], transform));
+            }
+        }
+        for(int i=0; i<Items.Length; i++){          //ItemPool 리스트에 생성할 Item들을 item_objCnt개 만큼 추가함
+            for(int q=0; q<item_objCnt; q++){
+                ItemPool.Add(CreateObj(Items[i], transform));
             }
         }
     }
@@ -26,6 +37,11 @@ public class RespawnManager : MonoBehaviour
                     MobPool[i].SetActive(false);
                 }
             }
+            for(int i=0; i<ItemPool.Count; i++){
+                if(ItemPool[i].activeSelf){
+                    ItemPool[i].SetActive(false);
+                }
+            }
             StartCoroutine(CreateMob());
         }
         else{
@@ -33,7 +49,7 @@ public class RespawnManager : MonoBehaviour
         }
             
     }
-    //몇개 생성되다가 마는거 해결해야함
+  
     IEnumerator CreateMob(){    // MobPool리스트에 있는 랜덤한 몹을 정해진 시간마다 한개씩 활성화
         yield return new WaitForSeconds(0.5f);
         
