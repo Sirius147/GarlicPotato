@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7969685789587445101}
   - component: {fileID: 7963434282845674262}
   - component: {fileID: 8868575787217915202}
+  - component: {fileID: 510674469729833376}
   m_Layer: 0
   m_Name: Mob_tissue
   m_TagString: Mob
@@ -115,3 +116,23 @@ CircleCollider2D:
   m_Offset: {x: 0.01493162, y: -0.02388984}
   serializedVersion: 2
   m_Radius: 0.3536738
+--- !u!95 &510674469729833376
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4237508193781629468}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a1659e8dcb6eda44bb4e248b7c74935, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
