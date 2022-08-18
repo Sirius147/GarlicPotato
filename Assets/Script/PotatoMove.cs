@@ -10,17 +10,24 @@ public class PotatoMove : MonoBehaviour
     int jumpStack=0;
     Rigidbody2D rb;
 
-    //김지은 
-    public int life;
-    public int score;
+    //김지은
+    public GameObject player;
+    public GameManager manager;
+    public GroundScroller groundScroller;
+    public int maxlife=3;
+    int life=3;
+    public bool isUnBeatTime=false;
+    public SpriteRenderer renderer;
     
-
 
     // Start is called before the first frame update
     void Start()
     {
         rb=GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
+        //김지은
+        renderer=GetComponent<SpriteRenderer>();
+      life=maxlife;
     }
 
     // Update is called once per frame
@@ -55,9 +62,10 @@ public class PotatoMove : MonoBehaviour
         if(transform.position.y<-3.3)
         {
             Debug.Log("game over");
-            GameManager.instance.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
+            manager.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
             
         }
+
     
     }
     
@@ -76,26 +84,50 @@ public class PotatoMove : MonoBehaviour
         
         
     }
-    /*void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
 	{       //collider 이름이 Mob인 물체를 통과했을 때 실행
-	    if (col.tag == "Mob")    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
-	    {
+	    if (col.tag == "Mob"&& !isUnBeatTime)    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
+	    { 
+              
             //김지은
             life--;
-            GameManager.UpdateLifeImage(life);
-
-	        Debug.Log("OnTriggerEnter2D");
-
+            manager.UpdateLifeIcon(life);
+            
             if (life == 0)
             {
-                GameManager.GameOver();
+                manager.GameOver();
+
+
             }
             else
             {
-                GameManager.RespawnPlayer(); //이 부분 모르겠음
+                isUnBeatTime=true;
+                StartCoroutine("UnBeatTime");
+               // manager.RespawnPlayer(); //플레이어 복귀
             }
-            gameObject.SetActive(false);
+
+            //gameObject.SetActive(false);  //비활성화
+       
+            
 	    }
-	}*/
+
+        
+	}
+    IEnumerator UnBeatTime(){
+        int countTime=0;
+        while(countTime<10){
+            if(countTime%2==0)
+            renderer.color=new Color32(255,255,255,90);
+            else
+            renderer.color=new Color32(255,255,255,180);
+            yield return new WaitForSeconds(0.2f);
+            
+            countTime++;
+        }
+        renderer.color=new Color32(255,255,255,255);
+        isUnBeatTime=false;
+        yield return null;
+    }
+ 
     
 }
