@@ -33,7 +33,8 @@ public class PotatoMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.isPause) {
+        if (!GameManager.isPause) 
+        {
             if (Input.GetMouseButtonDown(0))
             {
                 if ((jumpStack < 2) && (!anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide")))
@@ -66,12 +67,12 @@ public class PotatoMove : MonoBehaviour
                 GameManager.instance.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
 
             }
-        }
-        if(transform.position.y<-3.3)
-        {
-            Debug.Log("game over");
-            manager.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
-            
+            if (transform.position.y < -3.3)
+            {
+                Debug.Log("game over");
+                GameManager.instance.GameOver();      //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
+
+            }
         }
     }
     

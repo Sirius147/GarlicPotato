@@ -33,17 +33,18 @@ public class GameManager : MonoBehaviour
     public bool isHoleSpawn = false;
     public static int GameScore = 0;
 
-    public static bool isPause;
+    public static bool isPause= false;
 
     void Start()
     {
-        GameScore = 0;
-        isPause = false;
         Play();
     }
 
     void Play()
     {
+        isPause = false;
+        GameScore = 0;
+
         isPlay = true;
         onPlay.Invoke(isPlay);
     }
