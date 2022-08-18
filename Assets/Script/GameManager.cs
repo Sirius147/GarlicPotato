@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,20 +30,28 @@ public class GameManager : MonoBehaviour
 
     public float gameSpeed = 1; //게임 전체 속도 조절
     public bool isPlay = false;
-    public GameObject playBtn;
     public bool isHoleSpawn = false;
-    public int GameScore = 0;
+    public static int GameScore = 0;
 
-    public void PlayBtnClick(){
-        playBtn.SetActive(false);
+    public static bool isPause;
+
+    void Start()
+    {
+        GameScore = 0;
+        isPause = false;
+        Play();
+    }
+
+    void Play()
+    {
         isPlay = true;
         onPlay.Invoke(isPlay);
     }
 
     public void GameOver(){
-        playBtn.SetActive(true);
         isPlay = false;
         onPlay.Invoke(isPlay);
+        SceneManager.LoadScene("4_GameOver");
     }
     //김지은
     public void UpdateLifeIcon(int life){
@@ -58,18 +67,4 @@ public class GameManager : MonoBehaviour
             //color(r,g,b,a)에서 네번째 매개변수가 투명도이다.
         }
     }
-
-    //public void RespawnPlayer(){
-        
-        //groundScroller.tiles.SetActive(false);
-
-        //Invoke("RespawnPlayerExe",2f);  //2초 뒤에 이 로직 실행
-    //}
-
-    //void RespawnPlayerExe(){  //장애물 부딪히고 실행
-        //groundScroller.tiles.SetActive(true);
-       // player.SetActive(true);
-       //투명, 무적
-       //Debug.Log("잠시 멈춤");
-    //}
 }

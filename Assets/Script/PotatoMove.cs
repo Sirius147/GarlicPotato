@@ -33,31 +33,39 @@ public class PotatoMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))   
-        {       
-            if((jumpStack<2) && (!anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide"))) 
-            {   //slide상태가 아니고 점프스택이 2회보다 작을 때
-                anim.SetTrigger("toJump");
-                rb.velocity = Vector2.up * jumpForce;
-                jumpStack+=1;
-            }
-            
-            
-                
-        }
-        
-        if(Input.GetMouseButtonDown(1)) //우클릭
-        {
-            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoRun"))   //run 상태일 때 우클릭하면 슬라이드 상태 유지
+        if (!GameManager.isPause) {
+            if (Input.GetMouseButtonDown(0))
             {
-                anim.SetTrigger("toSlide");  
-                           
+                if ((jumpStack < 2) && (!anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide")))
+                {   //slide상태가 아니고 점프스택이 2회보다 작을 때
+                    anim.SetTrigger("toJump");
+                    rb.velocity = Vector2.up * jumpForce;
+                    jumpStack += 1;
+                }
+
+
+
             }
-            if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide")) // 우클릭을 한번 더 누르면 런 상태로 변경
+
+            if (Input.GetMouseButtonDown(1)) //우클릭
             {
-                anim.SetTrigger("toRun");
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoRun"))   //run 상태일 때 우클릭하면 슬라이드 상태 유지
+                {
+                    anim.SetTrigger("toSlide");
+
+                }
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide")) // 우클릭을 한번 더 누르면 런 상태로 변경
+                {
+                    anim.SetTrigger("toRun");
+                }
+
             }
-            
+            if (transform.position.y < -3.3)
+            {
+                Debug.Log("game over");
+                GameManager.instance.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
+
+            }
         }
         if(transform.position.y<-3.3)
         {
@@ -65,8 +73,6 @@ public class PotatoMove : MonoBehaviour
             manager.GameOver();        //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
             
         }
-
-    
     }
     
     void OnCollisionEnter2D(Collision2D col)   //테이블과 충돌했을 때 실행 ( 공중에서 무한점프를 방지하고 애니메이션전환 )

@@ -9,6 +9,6 @@ public class GameScore : MonoBehaviour
     public TextMeshProUGUI score;
 
     void Update(){
-        score.text = GameManager.instance.GameScore.ToString();
+        score.text = GameManager.GameScore.ToString();
     }
 }
