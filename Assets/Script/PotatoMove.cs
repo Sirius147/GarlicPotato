@@ -17,7 +17,7 @@ public class PotatoMove : MonoBehaviour
     public int maxlife=3;
     int life=3;
     public bool isUnBeatTime=false;
-    public SpriteRenderer renderer;
+    public SpriteRenderer potatoRenderer;
     
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class PotatoMove : MonoBehaviour
         rb=GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
         //김지은
-        renderer=GetComponent<SpriteRenderer>();
+        potatoRenderer=GetComponent<SpriteRenderer>();
       life=maxlife;
     }
 
@@ -117,14 +117,14 @@ public class PotatoMove : MonoBehaviour
         int countTime=0;
         while(countTime<10){
             if(countTime%2==0)
-            renderer.color=new Color32(255,255,255,90);
+            potatoRenderer.color=new Color32(255,255,255,90);
             else
-            renderer.color=new Color32(255,255,255,180);
+            potatoRenderer.color=new Color32(255,255,255,180);
             yield return new WaitForSeconds(0.2f);
             
             countTime++;
         }
-        renderer.color=new Color32(255,255,255,255);
+        potatoRenderer.color=new Color32(255,255,255,255);
         isUnBeatTime=false;
         yield return null;
     }
