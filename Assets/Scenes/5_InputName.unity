@@ -241,8 +241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -59.36, y: -166.1406}
-  m_SizeDelta: {x: 253.2416, y: 37.3612}
+  m_AnchoredPosition: {x: -69.3, y: -144.02}
+  m_SizeDelta: {x: 215.4718, y: 29.9554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &122597495
 MonoBehaviour:
@@ -769,8 +769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 164.9, y: -11}
-  m_SizeDelta: {x: 160, y: 272.919}
+  m_AnchoredPosition: {x: 137.1282, y: -8.4079}
+  m_SizeDelta: {x: 104.4563, y: 220.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861915084
 MonoBehaviour:
@@ -794,10 +794,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 816693952e0366e40b9c93a9ac19ec42, type: 3}
-    m_FontSize: 21
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 5
     m_AlignByGeometry: 0
@@ -949,8 +949,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: -162.46}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 155.2268, y: -144}
+  m_SizeDelta: {x: 151.8536, y: 29.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262266173
 MonoBehaviour:
@@ -1165,8 +1165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -59.36, y: -11}
-  m_SizeDelta: {x: 160, y: 272.919}
+  m_AnchoredPosition: {x: -72.3203, y: -8.4085}
+  m_SizeDelta: {x: 134.0796, y: 220.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484558713
 MonoBehaviour:
@@ -1190,10 +1190,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 816693952e0366e40b9c93a9ac19ec42, type: 3}
-    m_FontSize: 21
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 5
     m_AlignByGeometry: 0

@@ -22,11 +22,11 @@ public class GameManager : MonoBehaviour
 
       //김지은
     public Image[] lifeImage; 
-    public GameObject player;
-    public GroundScroller groundScroller;
+    //public GameObject player;
+    //public GroundScroller groundScroller;
     
-    public delegate void OnPlay(bool isplay);
-    public OnPlay onPlay;
+    //public delegate void OnPlay(bool isplay);
+    //public OnPlay onPlay;
 
     public float gameSpeed = 1; //게임 전체 속도 조절
     public bool isPlay = false;
@@ -40,18 +40,20 @@ public class GameManager : MonoBehaviour
         Play();
     }
 
-    void Play()
+    public void Play()
     {
         isPause = false;
         GameScore = 0;
 
         isPlay = true;
-        onPlay.Invoke(isPlay);
+        Debug.Log("IsPlay true");
+        //onPlay.Invoke(isPlay);
     }
 
     public void GameOver(){
         isPlay = false;
-        onPlay.Invoke(isPlay);
+        StopAllCoroutines();
+        //onPlay.Invoke(isPlay);
         SceneManager.LoadScene("4_GameOver");
     }
     //김지은

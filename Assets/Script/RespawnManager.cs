@@ -26,7 +26,9 @@ public class RespawnManager : MonoBehaviour
         }
     }
     private void Start(){
-        GameManager.instance.onPlay += PlayGame;
+        //GameManager.instance.onPlay += PlayGame;
+        PlayGame(GameManager.instance.isPlay);
+        //Debug.Log("respawnmanager start");
     }
 
 

@@ -81,7 +81,7 @@ public class PotatoMove : MonoBehaviour
         
         if(col.gameObject.tag=="Ground")   //collider 이름이 Ground 인 물체와 부딪힐 때 실행
         {
-            Debug.Log("OnCollision worked");
+            //Debug.Log("OnCollision worked");
             if(anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoJump"))
             { //점프 상태에서 바닥에 착지할 때 점프스택을 0으로 바꾸고 애니메이션도 run으로 변경
                 jumpStack=0;
