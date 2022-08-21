@@ -34,14 +34,24 @@ public class GameManager : MonoBehaviour
     public static int GameScore = 0;
 
     public static bool isPause= false;
-
+    public GameObject pausePopup;
     void Start()
     {
+        pausePopup.SetActive(false);
         Play();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseBtnClick();
+        }
     }
 
     public void Play()
     {
+        Time.timeScale = 1;
         isPause = false;
         GameScore = 0;
 
@@ -56,6 +66,32 @@ public class GameManager : MonoBehaviour
         //onPlay.Invoke(isPlay);
         SceneManager.LoadScene("4_GameOver");
     }
+
+    public void PauseBtnClick()
+    {
+        Time.timeScale = 0;
+        isPause = true;
+        pausePopup.SetActive(true);
+    }
+
+    public void ContinueBtnClick()
+    {
+        Time.timeScale = 1;
+        pausePopup.SetActive(false);
+        isPause = false;
+    }
+
+    public void RestartBtnClick()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("3_InGame");
+    }
+
+    public void HomeBtnClick()
+    {
+        SceneManager.LoadScene("2_Main");
+    }
+
     //김지은
     public void UpdateLifeIcon(int life){
         //UI Life 모두 안 보이게 함

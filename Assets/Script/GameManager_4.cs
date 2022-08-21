@@ -86,7 +86,7 @@ public class GameManager_4 : MonoBehaviour
             PlayerPrefs.SetInt(i + "BestScore", scoreList[i]);
             if (nameList[i] == "")
             {
-                PlayerPrefs.SetString(i.ToString() + "BestName", "------");
+                PlayerPrefs.SetString(i.ToString() + "BestName", "----------");
             }
             else
             {

@@ -20,7 +20,7 @@ public class GameManager_5 : MonoBehaviour
     void Start()
     {
         PreRankingTxt();
-        inputName.characterLimit = 6;
+        inputName.characterLimit = 12;
     }
 
     // Update is called once per frame
