@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     //public delegate void OnPlay(bool isplay);
     //public OnPlay onPlay;
 
-    public float gameSpeed = 1; //게임 전체 속도 조절
+    public float gameSpeed = 3; //게임 전체 속도 조절
     public bool isPlay = false;
     public bool isHoleSpawn = false;
     public static int GameScore = 0;

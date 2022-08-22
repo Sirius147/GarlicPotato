@@ -36,6 +36,7 @@ public class GroundScroller : MonoBehaviour
                     }
                     tiles[i].transform.position = new Vector2(temp.transform.position.x + 1, -2.7f);    // 바닥 타일을 제일 오른쪽으로 보냄
                     GameManager.GameScore++;                           // 오른쪽으로 보낸 타일의 개수를 셈
+                    GameManager.instance.gameSpeed += 0.01f;
                     tiles[i].GetComponent<BoxCollider2D>().enabled = true;      // 콜라이더 꺼져있으면 다시 활성화
 
                     // 바닥 타일에 씌울 이미지를 정하는 과정

@@ -1075,7 +1075,7 @@ MonoBehaviour:
   - {fileID: 853276206}
   - {fileID: 811814195}
   - {fileID: 1054892550}
-  gameSpeed: 7
+  gameSpeed: 3
   isPlay: 0
   isHoleSpawn: 0
   pausePopup: {fileID: 1625470010}
