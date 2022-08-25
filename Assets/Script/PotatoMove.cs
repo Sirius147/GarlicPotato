@@ -17,6 +17,7 @@ public class PotatoMove : MonoBehaviour
     public int maxlife=3;
     int life=3;
     public bool isUnBeatTime=false;
+    public bool isBoostTime = false;
     public SpriteRenderer potatoRenderer;
     
 
@@ -118,15 +119,33 @@ public class PotatoMove : MonoBehaviour
             
 	    }
 
+        // 아이템 먹었을 때
+        if (col.tag == "Item_Heart"){
+            Debug.Log("heart touch");
+        }
+
+
+        if(col.tag == "Item_Garlic"){
+            Debug.Log("garlic touch");
+            
+            if(isBoostTime){
+                StopCoroutine("BoostTime");
+            }
+                
+            isBoostTime = true;    
+            StartCoroutine("BoostTime");
+            isBoostTime = false;
+        }
+        
         
 	}
     IEnumerator UnBeatTime(){
         int countTime=0;
         while(countTime<10){
             if(countTime%2==0)
-            potatoRenderer.color=new Color32(255,255,255,90);
+                potatoRenderer.color=new Color32(255,255,255,90);
             else
-            potatoRenderer.color=new Color32(255,255,255,180);
+                potatoRenderer.color=new Color32(255,255,255,180);
             yield return new WaitForSeconds(0.2f);
             
             countTime++;
@@ -135,6 +154,16 @@ public class PotatoMove : MonoBehaviour
         isUnBeatTime=false;
         yield return null;
     }
- 
+    
+    IEnumerator BoostTime(){
+        
+        float temp_speed = GameManager.instance.gameSpeed;
+        GameManager.instance.gameSpeed *= 2;
+
+
+        yield return new WaitForSeconds(3f);
+        GameManager.instance.gameSpeed = temp_speed;
+        
+    }
     
 }

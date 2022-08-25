@@ -390,6 +390,7 @@ MonoBehaviour:
   groundScroller: {fileID: 0}
   maxlife: 3
   isUnBeatTime: 0
+  isBoostTime: 0
   potatoRenderer: {fileID: 0}
 --- !u!95 &415181763
 Animator:

@@ -10,7 +10,7 @@ public class GameManager_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll(); 기록 초기화시키고 싶을때 사용
+        //PlayerPrefs.DeleteAll();
         GameManager.isPause = true;
         escPopup.SetActive(false);
     }
