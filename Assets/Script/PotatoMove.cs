@@ -121,7 +121,11 @@ public class PotatoMove : MonoBehaviour
 
         // 아이템 먹었을 때
         if (col.tag == "Item_Heart"){
-            Debug.Log("heart touch");
+            //Debug.Log("heart touch");
+            if(life<3){
+            life++;
+            manager.PlusLifeIcon(life);
+            }
         }
 
 

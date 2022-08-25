@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     
     //public delegate void OnPlay(bool isplay);
     //public OnPlay onPlay;
+    //int maxlife=3;
 
     public float gameSpeed = 3; //게임 전체 속도 조절
     public bool isPlay = false;
@@ -104,6 +105,17 @@ public class GameManager : MonoBehaviour
             //lifeImage[index].SetActive(true);
             lifeImage[index].color=new Color(1,1,1,1);
             //color(r,g,b,a)에서 네번째 매개변수가 투명도이다.
+        }
+    }
+   public void PlusLifeIcon(int life){
+        //for(int index=life;index<=maxlife;index++){
+            //lifeImage[index].SetActive(true);
+            if(life<=3){
+                for(int i=0;i<life;i++){
+            lifeImage[i].color=new Color(1,1,1,1);
+            //lifeImage[life].enabled=true;
+            //color(r,g,b,a)에서 네번째 매개변수가 투명도이다.
+                }
         }
     }
 }
