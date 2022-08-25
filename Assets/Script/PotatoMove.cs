@@ -34,6 +34,7 @@ public class PotatoMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Vector2 target=new Vector2(transform.position.x,transform.position.y);
         if (!GameManager.isPause) 
         {
             if (Input.GetMouseButtonDown(0))
@@ -43,6 +44,12 @@ public class PotatoMove : MonoBehaviour
                     anim.SetTrigger("toJump");
                     rb.velocity = Vector2.up * jumpForce;
                     jumpStack += 1;
+                }
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide"))
+                {
+                    anim.SetTrigger("toJump");
+                    rb.velocity = Vector2.up*jumpForce;
+                    jumpStack+=1;
                 }
 
 
@@ -74,12 +81,16 @@ public class PotatoMove : MonoBehaviour
                 GameManager.instance.GameOver();      //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
 
             }
+            /*if(transform.position.x <-3.5)
+            {
+                transform.position=Vector2.MoveTowards(transform.position,target,Time.deltaTime*1);
+            }*/
+            
         }
     }
     
     void OnCollisionEnter2D(Collision2D col)   //테이블과 충돌했을 때 실행 ( 공중에서 무한점프를 방지하고 애니메이션전환 )
     {
-        
         if(col.gameObject.tag=="Ground")   //collider 이름이 Ground 인 물체와 부딪힐 때 실행
         {
             //Debug.Log("OnCollision worked");
@@ -88,6 +99,7 @@ public class PotatoMove : MonoBehaviour
                 jumpStack=0;
                 anim.SetTrigger("toRun");
             }
+
         }
         
         
