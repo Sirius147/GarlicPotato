@@ -41,7 +41,7 @@ public class GroundScroller : MonoBehaviour
 
                     // 바닥 타일에 씌울 이미지를 정하는 과정
                     // 공백 타일은 다음 규칙을 따라 나온다
-                    // plat table 3개 -> right table 1개 -> 공백 칸 1~3개 -> left table 1개 -> plat table 3개
+                    // plat table 3개 -> right table 1개 -> 공백 칸 2~4개 -> left table 1개 -> plat table 3개
                     if(front_plat_table_num + left_table_num + empty_space_num + right_table_num + back_plat_table_num == 0){
                         GameManager.instance.isHoleSpawn = false;
                         int randomblock = Random.Range(0, 10)/9;
@@ -54,7 +54,7 @@ public class GroundScroller : MonoBehaviour
                                 tiles[i].sprite = groundImg[0];         //앞쪽 plat 블럭1개 나올 차례
                                 front_plat_table_num = 2;
                                 right_table_num = 1;
-                                empty_space_num = Random.Range(1, 4);
+                                empty_space_num = Random.Range(2, 5);
                                 left_table_num = 1;
                                 back_plat_table_num = 3;
                                 break;
