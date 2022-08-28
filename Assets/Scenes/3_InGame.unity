@@ -1559,11 +1559,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 13
   anim: {fileID: 0}
+  movingSpeed: 0.1
   player: {fileID: 0}
   manager: {fileID: 487596292}
   groundScroller: {fileID: 0}
   maxlife: 3
   isUnBeatTime: 0
+  isBoostTime: 0
   potatoRenderer: {fileID: 0}
 --- !u!95 &652833196
 Animator:
@@ -1626,7 +1628,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0

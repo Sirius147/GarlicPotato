@@ -8,6 +8,8 @@ public class PotatoMove : MonoBehaviour
     public float jumpForce;
     public Animator anim;
     int jumpStack=0;
+    public float movingSpeed =0.1f;  //제자리로 돌아가는 속도 변수 (public)
+    
     Rigidbody2D rb;
 
     //김지은
@@ -26,9 +28,10 @@ public class PotatoMove : MonoBehaviour
     {
         rb=GetComponent<Rigidbody2D>();
         anim=GetComponent<Animator>();
+        
         //김지은
         potatoRenderer=GetComponent<SpriteRenderer>();
-      life=maxlife;
+        life=maxlife;
     }
 
     // Update is called once per frame
@@ -45,29 +48,34 @@ public class PotatoMove : MonoBehaviour
                     rb.velocity = Vector2.up * jumpForce;
                     jumpStack += 1;
                 }
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide"))
+                /*if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide"))
                 {
                     anim.SetTrigger("toJump");
                     rb.velocity = Vector2.up*jumpForce;
                     jumpStack+=1;
-                }
+                }*/   //슬라이드 코드 변경으로 임시 주석처리
 
 
 
             }
 
-            if (Input.GetMouseButtonDown(1)) //우클릭
+            if (Input.GetMouseButton(1)/*Input.GetMouseButtonDown(1)*/) //우클릭 홀드
             {
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoRun"))   //run 상태일 때 우클릭하면 슬라이드 상태 유지
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoRun"))   //run 상태일 때만 슬라이드로 전환
                 {
                     anim.SetTrigger("toSlide");
 
                 }
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide")) // 우클릭을 한번 더 누르면 런 상태로 변경
+
+            }
+
+            if(Input.GetMouseButtonUp(1)) // 홀드 해제시 
+            {
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("PotatoSlide"))   //슬라이드 상태에서 런 상태로 전환
                 {
                     anim.SetTrigger("toRun");
-                }
 
+                }
             }
             if (transform.position.y < -3.3)
             {
@@ -81,10 +89,10 @@ public class PotatoMove : MonoBehaviour
                 GameManager.instance.GameOver();      //game over 씬으로 전환 (지금은 임시로 play버튼 재활성화)
 
             }
-            /*if(transform.position.x <-3.5)
-            {
-                transform.position=Vector2.MoveTowards(transform.position,target,Time.deltaTime*1);
-            }*/
+            if(transform.position.x <-3.5)       // player 포지션이 뒤로 밀려나는 경우에만
+            { 
+                transform.Translate(Vector3.right*Time.deltaTime*movingSpeed);   // 천천히 위치조정
+            }
             
         }
     }
