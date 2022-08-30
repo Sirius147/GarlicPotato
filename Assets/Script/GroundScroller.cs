@@ -36,7 +36,8 @@ public class GroundScroller : MonoBehaviour
                     }
                     tiles[i].transform.position = new Vector2(temp.transform.position.x + 1, -2.7f);    // 바닥 타일을 제일 오른쪽으로 보냄
                     GameManager.GameScore++;                           // 오른쪽으로 보낸 타일의 개수를 셈
-                    GameManager.instance.gameSpeed += 0.01f;
+                    if(GameManager.instance.gameSpeed <= 8)           // 지난 타일 개수만큼 게임 속도 증가
+                        GameManager.instance.gameSpeed += 0.05f;
                     tiles[i].GetComponent<BoxCollider2D>().enabled = true;      // 콜라이더 꺼져있으면 다시 활성화
 
                     // 바닥 타일에 씌울 이미지를 정하는 과정
@@ -44,12 +45,12 @@ public class GroundScroller : MonoBehaviour
                     // plat table 3개 -> right table 1개 -> 공백 칸 2~4개 -> left table 1개 -> plat table 3개
                     if(front_plat_table_num + left_table_num + empty_space_num + right_table_num + back_plat_table_num == 0){
                         GameManager.instance.isHoleSpawn = false;
-                        int randomblock = Random.Range(0, 10)/9;
+                        int randomblock = Random.Range(0, 15)/14;
                         switch(randomblock){
-                            case 0:      //0: 테이블이 이어지는 경우    0 1 2 3 4 5 6 7 8- 90%
+                            case 0:      //0: 테이블이 이어지는 경우    0 1 2 3 4 5 6 7 8 9 10 11 12 13 - 93%
                                 tiles[i].sprite = groundImg[0];
                                 break;
-                            case 1:      //1: empty space가 나오는 경우 9 - 10%
+                            case 1:      //1: empty space가 나오는 경우 14 - 7%
                                 GameManager.instance.isHoleSpawn = true;
                                 tiles[i].sprite = groundImg[0];         //앞쪽 plat 블럭1개 나올 차례
                                 front_plat_table_num = 2;

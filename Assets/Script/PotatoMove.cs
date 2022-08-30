@@ -114,9 +114,8 @@ public class PotatoMove : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
 	{       //collider 이름이 Mob인 물체를 통과했을 때 실행
-	    if (col.tag == "Mob"&& !isUnBeatTime)    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
-	    { 
-              
+	    if (col.tag == "Mob" && !isUnBeatTime)    //OnTrigger는 tag로 줄일수있다.   OnCollision은 col.gameObject.tag  (compartag)
+	    {
             //김지은
             life--;
             manager.UpdateLifeIcon(life);
@@ -124,8 +123,6 @@ public class PotatoMove : MonoBehaviour
             if (life == 0)
             {
                 manager.GameOver();
-
-
             }
             else
             {
@@ -133,10 +130,7 @@ public class PotatoMove : MonoBehaviour
                 StartCoroutine("UnBeatTime");
                // manager.RespawnPlayer(); //플레이어 복귀
             }
-
             //gameObject.SetActive(false);  //비활성화
-       
-            
 	    }
 
         // 아이템 먹었을 때
@@ -148,21 +142,19 @@ public class PotatoMove : MonoBehaviour
             }
         }
 
-
         if(col.tag == "Item_Garlic"){
-            Debug.Log("garlic touch");
-            
+            //Debug.Log("garlic touch");
+            isUnBeatTime = true;
             if(isBoostTime){
                 StopCoroutine("BoostTime");
             }
                 
-            isBoostTime = true;    
+            isBoostTime = true;
             StartCoroutine("BoostTime");
             isBoostTime = false;
         }
-        
-        
 	}
+
     IEnumerator UnBeatTime(){
         int countTime=0;
         while(countTime<10){
@@ -180,14 +172,11 @@ public class PotatoMove : MonoBehaviour
     }
     
     IEnumerator BoostTime(){
-        
         float temp_speed = GameManager.instance.gameSpeed;
-        GameManager.instance.gameSpeed *= 2;
-
+        GameManager.instance.gameSpeed = 16;        // 부스터 속도
 
         yield return new WaitForSeconds(3f);
         GameManager.instance.gameSpeed = temp_speed;
-        
+        isUnBeatTime=false;
     }
-    
 }

@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     //public OnPlay onPlay;
     //int maxlife=3;
 
-    public float gameSpeed = 3; //게임 전체 속도 조절
+    public float gameSpeed = 4; //게임 전체 속도 조절
     public bool isPlay = false;
     public bool isHoleSpawn = false;
     public static int GameScore = 0;

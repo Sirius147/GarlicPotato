@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27516743b3df4d846a1801df55ee4f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {x: 7, y: 0}
+  StartPosition: {x: 9, y: 0}
 --- !u!61 &2174233511567943103
 BoxCollider2D:
   m_ObjectHideFlags: 0

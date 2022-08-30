@@ -53,19 +53,23 @@ public class RespawnManager : MonoBehaviour
     }
   
     IEnumerator CreateMob(){    // MobPool리스트에 있는 랜덤한 몹을 정해진 시간마다 한개씩 활성화
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         
         while(GameManager.instance.isPlay){
-            int temp = Random.Range(1, 3);      //개발 편의성을 위해 아이템 많이 생성되게
-            //int temp = Random.Range(1, 11);
-
+            //int temp = Random.Range(1, 3);      //개발 편의성을 위해 아이템 많이 생성되게
+            int temp = Random.Range(1, 15);
             if(!GameManager.instance.isHoleSpawn){
-                if(temp != 1)
-                    MobPool[DeactiveMob()].SetActive(true);
+                if(temp != 1){
+                    int dm = DeactiveMob();
+                    MobPool[dm].SetActive(true);
+                    if(dm == 9 || dm == 10 || dm == 11){    //Mob_3fork 나왔을 때 잠시 대기
+                        yield return new WaitForSeconds(1f);
+                    }
+                } 
                 else
                     ItemPool[DeactiveItem()].SetActive(true);
             }
-            yield return new WaitForSeconds(Random.Range(2f, 3f));
+            yield return new WaitForSeconds(Random.Range(0.8f, 1.6f));
         }   
     }
 
