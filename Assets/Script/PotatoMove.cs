@@ -177,6 +177,7 @@ public class PotatoMove : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         GameManager.instance.gameSpeed = temp_speed;
+        StartCoroutine("UnBeatTime");
         isUnBeatTime=false;
     }
 }

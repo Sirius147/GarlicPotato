@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         GameScore = 0;
 
         isPlay = true;
-        Debug.Log("IsPlay true");
+        //Debug.Log("IsPlay true");
         //onPlay.Invoke(isPlay);
     }
 
