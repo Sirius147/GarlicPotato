@@ -53,5 +53,8 @@ UnityEditor.EditorApplication.isPlaying = false;
         SceneManager.LoadScene("6_Ranking");
     }
 
-
+    public void HowToBtnClick()
+    {
+        SceneManager.LoadScene("7_HowTo");
+    }
 }

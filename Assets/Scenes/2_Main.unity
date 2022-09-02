@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 13
   anim: {fileID: 0}
+  movingSpeed: 0.1
   player: {fileID: 0}
   manager: {fileID: 0}
   groundScroller: {fileID: 0}
@@ -2022,7 +2023,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1930420653}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1162218874}
+        m_TargetAssemblyTypeName: GameManager_2, Assembly-CSharp
+        m_MethodName: HowToBtnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1930420653
 MonoBehaviour:
   m_ObjectHideFlags: 0
