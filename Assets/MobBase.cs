@@ -14,9 +14,15 @@ public class MobBase : MonoBehaviour
         if(GameManager.instance.isPlay){
             transform.Translate(Vector2.left * Time.deltaTime * GameManager.instance.gameSpeed);
 
-            if(transform.position.x < -6){      //제일 왼쪽으로 이동 시 비활성화
+            if(transform.position.x < -10){      //제일 왼쪽으로 이동 시 비활성화
                 gameObject.SetActive(false);
             }
-        }   
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col){
+        if((gameObject.tag == "Item_Heart" || gameObject.tag == "Item_Garlic") && col.tag == "Player"){
+            gameObject.SetActive(false);
+        }
     }
 }

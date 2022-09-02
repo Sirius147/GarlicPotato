@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f54d1bd14bd3ca042bd867b519fee8cc
+=======
+guid: 1f2e747f40ecb074eb36e52925652727
+>>>>>>> merged_branch
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
