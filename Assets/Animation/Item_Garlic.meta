@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/BackGround.meta
-guid: 92d43445b996c0842bb1d7cff2f6de6c
-========
 guid: 1ed6dd877bec6eb4cb4ede6186764a1d
->>>>>>>> merged_branch:Assets/Animation/Item_Garlic.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

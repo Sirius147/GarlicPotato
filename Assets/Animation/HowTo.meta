@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/BackGround/Blur.meta
-guid: ea8f8aa02d66be64fa3989ad0f5b3ca8
-========
 guid: 58c91797769aa24449312bbffdb10f87
->>>>>>>> merged_branch:Assets/Animation/HowTo.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
