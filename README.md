@@ -15,3 +15,4 @@
 
 
 <img width="786" height="442" alt="image (3)" src="https://github.com/user-attachments/assets/97e46cae-2d37-470e-ab7d-2b6076dc8946" />
+<img width="1280" height="720" alt="BG_GameOver" src="https://github.com/user-attachments/assets/0173e080-a1e7-4ab3-a8ab-1f00976f71cc" />
