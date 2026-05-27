@@ -14,4 +14,4 @@
 토마토 알레르기가 있는 감자튀김이 케찹을 싫어해서 전설의 소스인 갈릭디핑소스를 찾아 떠나는 여행. 우리의 감자튀김은 갈릭디핑소스를 찾을 수 있을까?
 
 
-![Uploading 스크린샷 2024-07-13 184614.png…]()
+<img width="786" height="442" alt="image (3)" src="https://github.com/user-attachments/assets/97e46cae-2d37-470e-ab7d-2b6076dc8946" />
